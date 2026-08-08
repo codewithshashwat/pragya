@@ -1,26 +1,146 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* AGENTS.md Colors - Light Theme */
+  --background: #faf8f4;
+  --surface: #ffffff;
+  --primary: #1d4ed8;
+  --primary-hover: #1e40af;
+  --primary-soft: #eff6ff;
+  --accent-gold: #c69214;
+
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+
+  --border: #e5e7eb;
+  --border-warm: #f0eee9;
+
+  --success: #15803d;
+  --warning: #b45309;
+  --error: #dc2626;
+  --info: #2563eb;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  --foreground: var(--text-primary);
+}
+
+.dark {
+  /* AGENTS.md Colors - Dark Theme */
+  --background: #171717;
+  --surface: #1f1f1f;
+  --elevated-surface: #262626;
+
+  --primary: #60a5fa;
+  --accent-gold: #d4a72c;
+
+  --text-primary: #f5f5f4;
+  --text-secondary: #a8a29e;
+
+  --border: #2f2f2f;
+
+  --foreground: var(--text-primary);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-soft: var(--primary-soft);
+  --color-accent-gold: var(--accent-gold);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-border: var(--border);
+  --color-border-warm: var(--border-warm);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-source-serif);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+
+  /* Typography Scale */
+  --text-display: 56px;
+  --text-display--line-height: 1.05;
+  --text-display--font-weight: 700;
+
+  --text-h1: 40px;
+  --text-h1--line-height: 1.15;
+  --text-h1--font-weight: 700;
+
+  --text-h2: 32px;
+  --text-h2--line-height: 1.2;
+  --text-h2--font-weight: 700;
+
+  --text-h3: 24px;
+  --text-h3--line-height: 1.3;
+  --text-h3--font-weight: 600;
+
+  --text-h4: 20px;
+  --text-h4--line-height: 1.4;
+  --text-h4--font-weight: 600;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.7;
+
+  --text-body: 16px;
+  --text-body--line-height: 1.6;
+
+  --text-small: 14px;
+  --text-small--line-height: 1.5;
+
+  --text-caption: 12px;
+  --text-caption--line-height: 1.4;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(17, 24, 39, 0.06);
+  --shadow-default: 0 4px 12px rgba(17, 24, 39, 0.08); /* Default small shadow for standard elements if needed */
+  --shadow-md: 0 4px 12px rgba(17, 24, 39, 0.08);
+  --shadow-lg: 0 12px 32px rgba(17, 24, 39, 0.1);
+
+  /* Mapping for shadcn */
+  --color-border: var(--border);
+  --color-input: var(--border);
+  --color-ring: var(--primary);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary-foreground: var(--surface);
+  --color-secondary: var(--surface);
+  --color-secondary-foreground: var(--text-primary);
+  --color-destructive: var(--error);
+  --color-destructive-foreground: var(--surface);
+  --color-muted: var(--background);
+  --color-muted-foreground: var(--text-muted);
+  --color-accent: var(--primary-soft);
+  --color-accent-foreground: var(--primary);
+  --color-popover: var(--surface);
+  --color-popover-foreground: var(--foreground);
+  --color-card: var(--surface);
+  --color-card-foreground: var(--foreground);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
 }
